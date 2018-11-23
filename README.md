@@ -10,7 +10,7 @@ Clone this repository and attach database into MYSQL client/PHPMyAdmin. Modify d
 
 * Clone [https://github.com/muaz234/GetOrganized.git] to your 
 
-Windows: xampp/htdocs directory /n 
+Windows: xampp/htdocs directory <br>
 Linux/Mac: var/www/html/ directory
 * Inport the database into your local environment 
 * Login and start to explore things around you.
