@@ -10,7 +10,7 @@ Clone this repository and attach database into MYSQL client/PHPMyAdmin. Modify d
 
 * Clone [https://github.com/muaz234/GetOrganized.git] to your 
 
-Windows: xampp/htdocs directory
+Windows: xampp/htdocs directory /n 
 Linux/Mac: var/www/html/ directory
 * Inport the database into your local environment 
 * Login and start to explore things around you.
@@ -35,4 +35,4 @@ Smart web based human resource web based system which consist of several functio
 
 ## Copyright and License
 
-Developed for Final Year Project as of requirement of Bachelor in IT, IIUM. 
+Developed for Final Year Project as of requirement of Bachelor of IT, IIUM. 
