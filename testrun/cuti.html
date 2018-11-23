@@ -1,0 +1,72 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body>
+<input type="date" id="start_date" onchange="cal()" />
+<input type="date" id="end_date" onchange="cal()" />
+<input type="text" id="hari" onchange="cal()">
+<input type="submit" value="Calculate" >
+</body>
+
+</html>
+
+
+
+<script type="text/javascript">
+	
+var gon = {};
+gon["holiday"] = "2018-04-01,2018-04-02,2018-04-11".split(",");
+
+// 2 helper functions - moment.js is 35K minified so overkill in my opinion
+function pad(num) { return ("0" + num).slice(-2); }
+function formatDate(date) { var d = new Date(date), dArr = [d.getFullYear(), pad(d.getMonth() + 1), pad(d.getDate())];return dArr.join('-');}
+
+function calculateDays(first,last) {
+  var aDay = 24 * 60 * 60 * 1000,
+  daysDiff = parseInt((last.getTime()-first.getTime())/aDay,10)+1;
+
+  if (daysDiff>0) {  
+    for (var i = first.getTime(), lst = last.getTime(); i <= lst; i += aDay) {
+      var d = new Date(i);
+      if (d.getDay() == 6 || d.getDay() == 0 // weekend
+      || gon.holiday.indexOf(formatDate(d)) != -1) {
+          daysDiff--;
+      }
+    }
+  }
+  return daysDiff;
+}
+
+// ONLY using jQuery here because OP already used it. I use 1.11 so IE8+
+
+function calc() {
+  
+var start_date = new Date(document.getElementById("start_date").value);
+var end_date = new Date(document.getElementById("end_date").value);
+
+    var days = calculateDays(start_date,end_date);
+    						  
+    if (days <= 0) {
+      alert("Please enter an end date after the begin date");
+    }
+    else {
+      //alert(days +" working days found");
+    }
+    return days;
+}
+
+
+function cal(){
+if(document.getElementById("end_date")){
+document.getElementById("hari").value=calc();
+        }  
+        
+    }
+
+
+
+
+
+</script>

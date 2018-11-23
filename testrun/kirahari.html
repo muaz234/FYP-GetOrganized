@@ -1,0 +1,52 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<form >
+<input type="date" id="dari"  onchange="cal()">
+<input type="date" id="sampai"  onchange="cal()">
+<input type="text" id="hari" >
+<input type="submit"  value="click">
+
+
+</div>
+
+</form>
+</body>
+
+</html>
+
+<script type="text/javascript">
+	function getBusinessDatesCount(startDate, endDate) {
+    var count = 0;
+    var curDate = startDate;
+    while (curDate <= endDate) {
+        var dayOfWeek = curDate.getDay();
+        if(!((dayOfWeek == 6) || (dayOfWeek == 0)))
+           count++;
+        curDate.setDate(curDate.getDate() + 1);
+    }
+    return count;
+}
+
+
+//Usage
+function test() {
+var startDate = new Date(document.getElementById("dari").value);
+var endDate = new Date(document.getElementById("sampai").value);
+var numOfDates = getBusinessDatesCount(startDate,endDate);
+return numOfDates;
+}
+
+function cal(){
+if(document.getElementById("sampai")){
+document.getElementById("hari").value=test();
+        }  
+        
+    }
+
+
+
+</script>
